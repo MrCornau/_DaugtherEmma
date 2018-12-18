@@ -1,0 +1,24 @@
+{
+    "name": "Get pages source",
+    "version": "1.0",
+    "manifest_version": 2,
+    "description": "Get pages source from a popup",
+
+    "background": {
+        "scripts": [ "node_modules/jquery/dist/jquery.js", "background.js"],
+        "run_at": "document_idle"
+      },
+      "permissions": [
+        "activeTab",
+        "https://www.amazon.de/*",
+        "notifications",
+        "storage"
+      ],
+      "content_scripts": [
+        {
+          "matches": ["https://www.amazon.de/*"],
+          "run_at": "document_idle",
+          "js": ["node_modules/jquery/dist/jquery.js", "contentScript.js"]
+        }
+      ]
+}      
